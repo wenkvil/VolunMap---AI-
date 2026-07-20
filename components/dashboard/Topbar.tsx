@@ -5,7 +5,7 @@ export default function Topbar() {
     <header className="mb-10 flex items-center justify-between">
       <div>
         <h2 className="text-5xl font-black">
-          Welcome back 👋
+          Welcome backkkkkk 👋
         </h2>
 
         <p className="mt-2 text-slate-500">
