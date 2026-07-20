@@ -7,17 +7,19 @@ import {
   User,
   Building2,
 } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const menu = [
-  { icon: Sparkles, label: "AI Match", href: "#" },
-  { icon: MapPinned, label: "Explore", href: "#" },
-  { icon: Calendar, label: "Events", href: "#" },
-  { icon: Trophy, label: "Passport", href: "#" },
-  { icon: User, label: "Profile", href: "#" },
-  { icon: Building2, label: "Organizations", href: "#" },
+  { icon: MapPinned, label: "Dashboard", href: "/volunteer" },
+  { icon: Sparkles, label: "AI Match", href: "/ai-match" },
+  { icon: Calendar, label: "Events", href: "/volunteer" },
+  { icon: Trophy, label: "Passport", href: "/volunteer" },
+  { icon: User, label: "Profile", href: "/profile" },
+  { icon: Building2, label: "Organizations", href: "/organization" },
 ];
 
 export default function Sidebar() {
+    const pathname = usePathname();
   return (
     <aside className="w-72 min-h-screen border-r bg-white p-8">
       <h1 className="text-3xl font-black text-emerald-600">
@@ -32,7 +34,12 @@ export default function Sidebar() {
             <Link
               key={item.label}
               href={item.href}
-              className="flex items-center gap-3 rounded-xl p-3 transition hover:bg-emerald-50 hover:text-emerald-600"
+              className={`flex items-center gap-3 rounded-xl p-3 transition-all duration-300
+                ${
+                    pathname === item.href
+                    ? "bg-[#ABC5DE] text-slate-900 shadow-md font-semibold"
+                    : "hover:bg-[#E9ECF1] text-slate-600"
+              }`}
             >
               <Icon size={20} />
               {item.label}
