@@ -4,6 +4,7 @@ import StatCard from "@/components/dashboard/Statcard";
 import RecommendationCard from "@/components/dashboard/Recommendationcard";
 import MapCard from "@/components/dashboard/Mapcard";
 import PassportCard from "@/components/dashboard/Passportcard";
+import UpcomingEvents from "@/components/dashboard/Upcomingevents";
 
 export default function VolunteerDashboard() {
   return (
@@ -49,6 +50,10 @@ export default function VolunteerDashboard() {
 
         <div className="mt-10">
             <PassportCard />
+        </div>
+
+        <div className="mt-10">
+            <UpcomingEvents />
         </div>
       </section>
     </main>
