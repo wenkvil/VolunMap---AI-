@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function ProfileCard() {
   return (
-    <div className="rounded-3xl bg-white p-8 shadow-lg">
+    <div className="rounded-3xl bg-[#EEDDC9] p-8 shadow-lg">
       <div className="flex flex-col items-center">
         <Image
          src="https://i.pravatar.cc/150?img=12"

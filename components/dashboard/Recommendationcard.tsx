@@ -15,7 +15,7 @@ export default function RecommendationCard() {
         our AI calculated a 98% compatibility score.
       </p>
 
-      <button className="mt-8 rounded-2xl bg-white px-8 py-3 font-bold text-emerald-600">
+      <button className="mt-8 rounded-2xl bg-[#ABC5DE] px-8 py-3 font-bold text-emerald-600">
         Join Event
       </button>
 

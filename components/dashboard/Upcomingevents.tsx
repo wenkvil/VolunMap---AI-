@@ -66,7 +66,7 @@ export default function UpcomingEvents() {
                 {event.match}
               </div>
 
-              <button className="rounded-xl bg-emerald-600 px-5 py-2 text-white transition hover:bg-emerald-700">
+              <button className="rounded-xl bg-[#ABC5DE] px-5 py-2 text-white transition hover:bg-emerald-700">
                 Join
               </button>
             </div>

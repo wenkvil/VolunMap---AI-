@@ -2,7 +2,7 @@ import { Sparkles } from "lucide-react";
 
 export default function AIEventCreator() {
   return (
-    <div className="rounded-3xl bg-white p-8 shadow-lg">
+    <div className="rounded-3xl bg-[#EEDDC9] p-8 shadow-lg">
       <div className="mb-6 flex items-center gap-3">
         <Sparkles className="text-emerald-600" size={28} />
         <h2 className="text-2xl font-bold">AI Event Generator</h2>

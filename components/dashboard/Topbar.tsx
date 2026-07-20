@@ -13,7 +13,7 @@ export default function Topbar() {
         </p>
       </div>
 
-      <button className="rounded-full bg-white p-3 shadow">
+      <button className="rounded-full bg-[#ABC5DE] p-3 shadow">
         <Bell />
       </button>
     </header>

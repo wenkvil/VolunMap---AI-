@@ -9,7 +9,7 @@ export default function SkillsCard() {
   ];
 
   return (
-    <div className="rounded-3xl bg-white p-8 shadow-lg">
+    <div className="rounded-3xl bg-[#EEDDC9] p-8 shadow-lg">
       <h2 className="text-2xl font-bold">
         Skills & Interests
       </h2>

@@ -8,7 +8,7 @@ import UpcomingEvents from "@/components/dashboard/Upcomingevents";
 
 export default function VolunteerDashboard() {
   return (
-    <main className="flex min-h-screen bg-slate-100">
+    <main className="flex min-h-screen bg-[#E9ECF1]">
       <Sidebar />
 
       <section className="flex-1 p-10">

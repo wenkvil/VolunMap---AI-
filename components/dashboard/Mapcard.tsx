@@ -42,7 +42,7 @@ const events = [
 
 export default function MapCard() {
   return (
-    <div className="overflow-hidden rounded-3xl bg-white shadow-lg">
+    <div className="overflow-hidden rounded-3xl bg-[#EEDDC9] shadow-lg">
       <div className="flex items-center justify-between border-b p-6">
         <div>
           <h2 className="text-2xl font-bold text-slate-900">
@@ -83,7 +83,7 @@ export default function MapCard() {
                   🤖 AI Match: {event.match}
                 </p>
 
-                <button className="mt-2 rounded-lg bg-emerald-600 px-3 py-2 text-sm text-white">
+                <button className="mt-2 rounded-lg bg-[#ABC5DE] px-3 py-2 text-sm text-white">
                   Register
                 </button>
               </div>

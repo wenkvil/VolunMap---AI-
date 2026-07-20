@@ -2,7 +2,7 @@ import { Award } from "lucide-react";
 
 export default function AchievementCard() {
   return (
-    <div className="rounded-3xl bg-white p-8 shadow-lg">
+    <div className="rounded-3xl bg-[#EEDDC9] p-8 shadow-lg">
       <div className="flex items-center gap-3">
         <Award className="text-yellow-500"/>
         <h2 className="text-2xl font-bold">

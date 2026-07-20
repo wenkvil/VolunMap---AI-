@@ -6,7 +6,7 @@ import AchievementCard from "@/components/profile/AchievementCard";
 
 export default function ProfilePage() {
   return (
-    <main className="flex min-h-screen bg-slate-100">
+    <main className="flex min-h-screen bg-[#E9ECF1]">
       <Sidebar />
 
       <section className="flex-1 p-10">
