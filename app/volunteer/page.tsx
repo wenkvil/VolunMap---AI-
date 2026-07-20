@@ -2,6 +2,7 @@ import Sidebar from "@/components/dashboard/Sidebar";
 import Topbar from "@/components/dashboard/Topbar";
 import StatCard from "@/components/dashboard/Statcard";
 import RecommendationCard from "@/components/dashboard/Recommendationcard";
+import MapCard from "@/components/dashboard/Mapcard";
 
 export default function VolunteerDashboard() {
   return (
@@ -39,6 +40,10 @@ export default function VolunteerDashboard() {
 
         <div className="mt-10">
           <RecommendationCard />
+        </div>
+        
+        <div className="mt-10">
+            <MapCard />
         </div>
       </section>
     </main>
