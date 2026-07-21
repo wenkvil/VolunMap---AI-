@@ -85,7 +85,10 @@ export default function MapCard() {
           {events.map((event) => (
             <Marker
               key={event.id}
-              position={DEFAULT_POSITION}
+              position={[
+                (event as any).latitude ?? DEFAULT_POSITION[0],
+                (event as any).longitude ?? DEFAULT_POSITION[1],
+              ]}
             >
               <Popup>
                 <strong>{event.title}</strong>
