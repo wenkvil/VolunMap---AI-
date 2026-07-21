@@ -7,6 +7,8 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "@/lib/firebase";
 import { doc, getDoc } from "firebase/firestore";
 
+import Link from "next/link";
+
 export default function LoginForm() {
   const router = useRouter();
 
@@ -84,7 +86,16 @@ export default function LoginForm() {
         >
           {loading ? "Signing In..." : "Login"}
         </button>
-
+        
+        <div className="mt-6 flex items-center justify-center gap-2 text-sm text-slate-600">
+          <span>Do not have an account?</span>
+          <Link
+          href="/register"
+          className="rounded-lg px-3 py-2 font-semibold text-emerald-600 transition hover:bg-emerald-50"
+          >
+            Register
+            </Link>
+            </div>
       </div>
     </form>
   );

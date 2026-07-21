@@ -8,6 +8,8 @@ import { auth, db } from "@/lib/firebase";
 
 import { doc, setDoc } from "firebase/firestore";
 
+import Link from "next/link";
+
 export default function RegisterForm() {
   const router = useRouter();
 
@@ -121,6 +123,16 @@ export default function RegisterForm() {
         >
           {loading ? "Creating..." : "Create Account"}
         </button>
+
+        <div className="mt-6 flex items-center justify-center gap-2 text-sm text-slate-600">
+            <span>Already have an account?</span>
+            <Link
+            href="/login"
+            className="rounded-lg px-3 py-2 font-semibold text-emerald-600 transition hover:bg-emerald-50"
+            >
+            Login
+        </Link>
+        </div>
 
       </div>
     </form>
