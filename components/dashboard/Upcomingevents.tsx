@@ -18,6 +18,24 @@ type Event = {
 const [events, setEvents] = useState<Event[]>([]);
 
 export default function UpcomingEvents() {
+  useEffect(() => {
+  const q = query(
+    collection(db, "events"),
+    orderBy("createdAt", "desc")
+  );
+
+  const unsubscribe = onSnapshot(q, (snapshot) => {
+    const data = snapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...(doc.data() as Omit<Event, "id">),
+    }));
+
+    setEvents(data);
+    });
+
+  return unsubscribe;
+     }, []);
+
   return (
     <section className="mt-10 rounded-3xl bg-white p-8 shadow-lg">
       <div className="mb-8 flex items-center justify-between">
