@@ -1,4 +1,12 @@
 import { CalendarDays, MapPin, Sparkles } from "lucide-react";
+import { useEffect, useState } from "react";
+import {
+  collection,
+  onSnapshot,
+  orderBy,
+  query,
+} from "firebase/firestore";
+import { db } from "@/lib/firebase";
 
 const events = [
   {
