@@ -10,6 +10,8 @@ import { doc, setDoc } from "firebase/firestore";
 
 import Link from "next/link";
 
+import { useSearchParams } from "next/navigation";
+
 export default function RegisterForm() {
   const router = useRouter();
 
@@ -17,9 +19,15 @@ export default function RegisterForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [role, setRole] = useState<"volunteer" | "organization">(
-    "volunteer"
-  );
+  
+   const searchParams = useSearchParams();
+
+   const defaultRole =
+   searchParams.get("role") === "organization"
+    ? "organization"
+    : "volunteer";
+
+     const [role, setRole] = useState<"volunteer" | "organization">(defaultRole);
 
   const [loading, setLoading] = useState(false);
 
