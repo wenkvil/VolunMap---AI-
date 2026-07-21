@@ -38,7 +38,18 @@ export default function EventList() {
 
     return unsubscribe;
   }, []);
+   
+async function handleDelete(id: string) {
+  if (!confirm("Delete this event?")) return;
 
+  try {
+    await deleteDoc(doc(db, "events", id));
+  } catch (error) {
+    console.error(error);
+    alert("Failed to delete event.");
+  }
+}
+ 
   return (
     <div className="mt-10 rounded-3xl bg-white p-8 shadow-xl">
       <h2 className="mb-6 text-3xl font-black">
