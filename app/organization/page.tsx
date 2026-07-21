@@ -1,4 +1,4 @@
-import Sidebar from "@/components/dashboard/Sidebar";
+import OrganizationSidebar from "@/components/dashboard/OrganizationSidebar";
 import Topbar from "@/components/dashboard/Topbar";
 import OrganizationStats from "@/components/organization/OrganizationStats";
 import CreateEventCard from "@/components/organization/CreateEventCard";
@@ -10,7 +10,7 @@ import EventList from "@/components/organization/EventList";
 export default function OrganizationDashboard() {
   return (
     <main className="flex min-h-screen bg-slate-100">
-      <Sidebar />
+      <OrganizationSidebar />
 
       <section className="flex-1 p-10">
         <Topbar />
