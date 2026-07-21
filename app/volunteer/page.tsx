@@ -5,9 +5,11 @@ import RecommendationCard from "@/components/dashboard/Recommendationcard";
 import MapCard from "@/components/dashboard/Mapcard";
 import PassportCard from "@/components/dashboard/Passportcard";
 import UpcomingEvents from "@/components/dashboard/Upcomingevents";
+import ProtectedRoute from "@/components/protected/ProtectedRoute";
 
 export default function VolunteerDashboard() {
   return (
+    <ProtectedRoute>
     <main className="flex min-h-screen bg-slate-100">
       <Sidebar />
 
@@ -56,6 +58,7 @@ export default function VolunteerDashboard() {
             <UpcomingEvents />
         </div>
       </section>
-    </main>
-  );
+     </main>
+   </ProtectedRoute>
+ );
 }
