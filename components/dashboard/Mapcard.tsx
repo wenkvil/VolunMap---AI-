@@ -33,6 +33,8 @@ type Event = {
   title: string;
   location: string;
   date: string;
+  latitude?: number;
+  longitude?: number;
 };
 
 const DEFAULT_POSITION: [number, number] = [49.806, 73.085];
@@ -86,9 +88,9 @@ export default function MapCard() {
             <Marker
               key={event.id}
               position={[
-                (event as any).latitude ?? DEFAULT_POSITION[0],
-                (event as any).longitude ?? DEFAULT_POSITION[1],
-              ]}
+                  event.latitude ?? DEFAULT_POSITION[0],
+                  event.longitude ?? DEFAULT_POSITION[1],
+                ]}
             >
               <Popup>
                 <strong>{event.title}</strong>
