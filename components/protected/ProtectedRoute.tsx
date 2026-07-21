@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useAuth } from "@/components/providers/AuthProvider";
 
 export default function ProtectedRoute({
@@ -9,14 +9,35 @@ export default function ProtectedRoute({
 }: {
   children: React.ReactNode;
 }) {
-  const { user, loading } = useAuth();
+  const { user, role, loading } = useAuth();
+
   const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
-    if (!loading && !user) {
+    if (loading) return;
+
+    if (!user) {
       router.replace("/login");
+      return;
     }
-  }, [loading, user, router]);
+
+    if (
+      pathname.startsWith("/organization") &&
+      role !== "organization"
+    ) {
+      router.replace("/volunteer");
+      return;
+    }
+
+    if (
+      pathname.startsWith("/volunteer") &&
+      role !== "volunteer"
+    ) {
+      router.replace("/organization");
+      return;
+    }
+  }, [loading, user, role, pathname, router]);
 
   if (loading) {
     return (
