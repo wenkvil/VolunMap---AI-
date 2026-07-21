@@ -2,7 +2,7 @@ import { Sparkles, CheckCircle2 } from "lucide-react";
 
 export default function AIMatchCard() {
   return (
-    <div className="rounded-3xl bg-white p-10 shadow-lg">
+    <div className="rounded-3xl bg-white p-8 shadow-lg">
 
       <div className="flex items-center gap-3">
         <Sparkles className="text-emerald-600" size={34}/>

@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import {
   Sparkles,
@@ -37,8 +39,8 @@ export default function Sidebar() {
               className={`flex items-center gap-3 rounded-xl p-3 transition-all duration-300
                 ${
                     pathname === item.href
-                    ? "bg-[#ABC5DE] text-slate-900 shadow-md font-semibold"
-                    : "hover:bg-[#E9ECF1] text-slate-600"
+                    ? "bg-emerald-600 text-slate-900 shadow-md font-semibold"
+                    : "hover:bg-slate-100 text-slate-600"
               }`}
             >
               <Icon size={20} />

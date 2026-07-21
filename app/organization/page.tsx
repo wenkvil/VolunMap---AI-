@@ -7,7 +7,7 @@ import AIEventCreator from "@/components/organization/AIEventCreator";
 
 export default function OrganizationDashboard() {
   return (
-    <main className="flex min-h-screen bg-[#E9ECF1]">
+    <main className="flex min-h-screen bg-slate-100">
       <Sidebar />
 
       <section className="flex-1 p-10">

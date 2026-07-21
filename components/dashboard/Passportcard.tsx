@@ -2,7 +2,7 @@ import { Award, Clock3, Medal, FileCheck } from "lucide-react";
 
 export default function PassportCard() {
   return (
-    <div className="rounded-3xl bg-[#EEDDC9] p-8 shadow-lg">
+    <div className="rounded-3xl p-8 shadow-lg">
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-2xl font-bold">
@@ -48,7 +48,7 @@ export default function PassportCard() {
 
       </div>
 
-      <button className="mt-8 w-full rounded-2xl bg-[#ABC5DE] py-3 font-semibold text-white transition hover:bg-emerald-700">
+      <button className="mt-8 w-full rounded-2xl bg-emerald-600 py-3 font-semibold text-white transition hover:bg-emerald-700">
         View Passport
       </button>
     </div>
