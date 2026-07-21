@@ -8,29 +8,14 @@ import {
 } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 
-const events = [
-  {
-    id: 1,
-    title: "Tree Planting Festival",
-    date: "Tomorrow • 10:00",
-    location: "Central Park",
-    match: "98%",
-  },
-  {
-    id: 2,
-    title: "Food Bank Support",
-    date: "Friday • 14:00",
-    location: "Karaganda Food Center",
-    match: "94%",
-  },
-  {
-    id: 3,
-    title: "Animal Shelter Help",
-    date: "Saturday • 11:00",
-    location: "Happy Pets Shelter",
-    match: "91%",
-  },
-];
+type Event = {
+  id: string;
+  title: string;
+  location: string;
+  date: string;
+};
+
+const [events, setEvents] = useState<Event[]>([]);
 
 export default function UpcomingEvents() {
   return (
