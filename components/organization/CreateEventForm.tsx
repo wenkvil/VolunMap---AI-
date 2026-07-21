@@ -60,6 +60,31 @@ export default function CreateEventForm() {
           onChange={(e) => setLocation(e.target.value)}
         />
 
+        <div className="grid grid-cols-2 gap-4">
+
+        <input
+         className="rounded-xl border p-3"
+         type="number"
+         step="0.000001"
+         placeholder="Latitude"
+         value={latitude}
+         onChange={(e) =>
+        setLatitude(Number(e.target.value))
+        }
+        />
+
+        <input 
+         className="rounded-xl border p-3"
+         type="number"
+         step="0.000001"
+         placeholder="Longitude"
+         value={longitude}
+         onChange={(e) =>
+        setLongitude(Number(e.target.value))
+        }
+        />
+
+</div>
         <input
           className="w-full rounded-xl border p-3"
           type="date"
