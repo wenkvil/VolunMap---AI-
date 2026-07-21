@@ -49,10 +49,14 @@ export default function RegisterForm() {
       } else {
         router.push("/organization");
       }
-    } catch (error) {
-      console.error(error);
-      alert("Registration failed.");
-    } finally {
+    } catch (error: unknown) {
+        console.error(error);
+        if (error instanceof Error) {
+            alert(error.message);
+        } else {
+            alert("Registration failed");
+        }
+} finally {
       setLoading(false);
     }
   }
