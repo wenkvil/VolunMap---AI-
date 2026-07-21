@@ -4,6 +4,7 @@ import OrganizationStats from "@/components/organization/OrganizationStats";
 import CreateEventCard from "@/components/organization/CreateEventCard";
 import OrganizationEvents from "@/components/organization/OrganizationEvents";
 import AIEventCreator from "@/components/organization/AIEventCreator";
+import CreateEventForm from "@/components/organization/CreateEventForm";
 
 export default function OrganizationDashboard() {
   return (
@@ -15,6 +16,10 @@ export default function OrganizationDashboard() {
 
         <OrganizationStats />
 
+        <div className="mt-10">
+          <CreateEventForm />
+        </div>
+        
         <div className="mt-10">
           <CreateEventCard />
         </div>
