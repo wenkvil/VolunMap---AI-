@@ -49,7 +49,7 @@ async function handleDelete(id: string) {
     alert("Failed to delete event.");
   }
 }
- 
+
   return (
     <div className="mt-10 rounded-3xl bg-white p-8 shadow-xl">
       <h2 className="mb-6 text-3xl font-black">
@@ -78,6 +78,14 @@ async function handleDelete(id: string) {
               <p className="text-slate-500">
                 📅 {event.date}
               </p>
+
+              <button
+              onClick={() => handleDelete(event.id)}
+              className="mt-4 rounded-xl bg-red-500 px-4 py-2 font-semibold text-white hover:bg-red-600"
+              >
+                Delete Event
+            </button>
+            
             </div>
           ))
         )}
