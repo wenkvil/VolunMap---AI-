@@ -8,6 +8,8 @@ export default function CreateEventForm() {
   const [title, setTitle] = useState("");
   const [location, setLocation] = useState("");
   const [date, setDate] = useState("");
+  const [latitude, setLatitude] = useState(49.806);
+  const [longitude, setLongitude] = useState(73.085);
 
   async function handleCreate() {
   if (!title || !location || !date) {
@@ -17,10 +19,12 @@ export default function CreateEventForm() {
 
   try {
     await addDoc(collection(db, "events"), {
-      title,
-      location,
-      date,
-      createdAt: serverTimestamp(),
+        title,
+        location,
+        date,
+        latitude,
+        longitude,
+        createdAt: serverTimestamp(),
     });
 
     setTitle("");
