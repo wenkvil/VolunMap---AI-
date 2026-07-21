@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "@/lib/firebase";
 import { useRouter } from "next/navigation";
+
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "@/lib/firebase";
+import { doc, getDoc } from "firebase/firestore";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -11,45 +13,79 @@ export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [loading, setLoading] = useState(false);
+
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
 
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      setLoading(true);
 
-      router.push("/volunteer");
-    } catch (err) {
-      alert("Incorrect email or password.");
-      console.error(err);
+      const credential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      const uid = credential.user.uid;
+
+      const userDoc = await getDoc(doc(db, "users", uid));
+
+      if (!userDoc.exists()) {
+        alert("User profile not found.");
+        return;
+      }
+
+      const data = userDoc.data();
+
+      if (data.role === "organization") {
+        router.push("/organization");
+      } else {
+        router.push("/volunteer");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Invalid email or password.");
+    } finally {
+      setLoading(false);
     }
   }
 
   return (
     <form
       onSubmit={handleLogin}
-      className="mx-auto mt-20 flex max-w-md flex-col gap-4 rounded-3xl bg-white p-8 shadow-xl"
+      className="mx-auto mt-20 max-w-md rounded-3xl bg-white p-8 shadow-xl"
     >
-      <h1 className="text-3xl font-black">Login</h1>
-
-      <input
-        className="rounded-xl border p-3"
-        placeholder="Email"
-        type="email"
-        onChange={(e) => setEmail(e.target.value)}
-      />
-
-      <input
-        className="rounded-xl border p-3"
-        placeholder="Password"
-        type="password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-
-      <button
-        className="rounded-xl bg-emerald-600 p-3 font-bold text-white hover:bg-emerald-700"
-      >
+      <h1 className="mb-8 text-3xl font-black">
         Login
-      </button>
+      </h1>
+
+      <div className="space-y-4">
+
+        <input
+          className="w-full rounded-xl border p-3"
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+
+        <input
+          className="w-full rounded-xl border p-3"
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+        <button
+          disabled={loading}
+          className="w-full rounded-xl bg-emerald-600 py-3 font-bold text-white hover:bg-emerald-700 disabled:opacity-50"
+        >
+          {loading ? "Signing In..." : "Login"}
+        </button>
+
+      </div>
     </form>
   );
 }
