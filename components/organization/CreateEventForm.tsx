@@ -1,11 +1,38 @@
 "use client";
 
 import { useState } from "react";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 
 export default function CreateEventForm() {
   const [title, setTitle] = useState("");
   const [location, setLocation] = useState("");
   const [date, setDate] = useState("");
+
+  async function handleCreate() {
+  if (!title || !location || !date) {
+    alert("Please fill in all fields.");
+    return;
+  }
+
+  try {
+    await addDoc(collection(db, "events"), {
+      title,
+      location,
+      date,
+      createdAt: serverTimestamp(),
+    });
+
+    setTitle("");
+    setLocation("");
+    setDate("");
+
+    alert("Event created successfully!");
+  } catch (error) {
+    console.error(error);
+    alert("Failed to create event.");
+  }
+}
 
   return (
     <div className="rounded-3xl bg-white p-8 shadow-xl">
@@ -36,8 +63,11 @@ export default function CreateEventForm() {
           onChange={(e) => setDate(e.target.value)}
         />
 
-        <button className="w-full rounded-xl bg-emerald-600 py-3 font-bold text-white hover:bg-emerald-700">
-          Create Event
+        <button 
+          onClick={handleCreate}
+          className="w-full rounded-xl bg-emerald-600 py-3 font-bold text-white hover:bg-emerald-700"
+       >
+        Create Event
         </button>
 
       </div>
